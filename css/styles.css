@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+}
+
+body{
+    font-family:'Courier New', Courier, monospace;
+    background-color: white;
+}
+
+
+
+.featured{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.side-img:nth-of-type(1){
+    order: 1;
+    width: 400px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+.side-img:nth-of-type(2){
+    width: 400px;
+    height: 800px;
+    margin: 0 auto;
+    order: 3;
+}
+
+.banner{
+    width: 70%;
+    margin: auto;
+}
+
+.banner img{
+    width: 100%;
+    height: 800px;
+    padding: 0 30px;
+    background-color: #fff;
+    /* position: relative; */
+}
+.header-card{
+    position: sticky;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 2;
+    order: 2;
+}
+
+.featured-card{
+    position: absolute;
+    width: 50%;
+    height: 300px;
+    bottom: 70px;
+    margin: auto;
+    background: #fff;
+    border: 1px solid rgb(97, 34, 34);
+    opacity: .8;
+    /* position: absolute; */
+    /* bottom: 100px; */
+    
+}
+
+h1,h2{
+    text-align: center;
+}
+
+.featured-recipe{
+    text-align: center;
+    margin: 0 2rem;
+    padding: 1.5rem;
+}
+
+.rcp-lastminute{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+h3{
+    flex: 1 100%;
+    text-align: center;
+}
+.background-mid{
+    width: 100%;
+
+}
+
+.summer-fav{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.rcp-card{
+    background-color: antiquewhite;
+    height: 500px;
+    width: 450px;
+    margin: 1rem;
+    grid-area: card;
+}
+
+.card-photo{
+    height: 300px;
+    width: 450px;
+}
+
+
+.social-icon{
+    height: 75px;
+    width: 75px;
+}
+
+footer{
+    max-width: 100%;
+  
+}
