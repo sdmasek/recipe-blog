@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>Recipe Blog</title>
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a href="#" class="navbar-brand">Brand</a>
+            <a href="#" class="navbar-brand"><img src="photos/easy_cooking_header.png" class="nav-img"></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,17 +34,26 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Recipes</a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Inbox</a>
-                            <a href="#" class="dropdown-item">Drafts</a>
-                            <a href="#" class="dropdown-item">Sent Items</a>
+                            <a href="#" class="dropdown-item">Seasonal & Holiday</a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">Trash</a>
+                            <a href="#" class="dropdown-item">Health Conscious</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">Quick & Simple</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">I don't know</a>
                         </div>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
+                    <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                            aria-label="Search">
+                    </form>
+                </ul>
+                <ul class="nav navbar-nav">
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Recipes</a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="#" class="dropdown-item">Saved Recipes</a>
                             <a href="#" class="dropdown-item">Search Filter</a>
@@ -56,65 +65,57 @@
             </div>
         </nav>
         <div class="featured">
-            <img src="photos/side-img-spices.jpeg" class="side-img">
+            <!-- <img src="photos/side-img-spices.jpeg" class="side-img"> -->
             <div class="header-card">
-                <figure class="banner"><img src="photos/eggs_benedict.jpg">
+                <figure class="banner"><img src="photos/calum-lewis-rkT_TG5NKF8-unsplash.jpg" class="header-img">
                 </figure>
                 <div class="featured-card">
                     <h1>Featured Dish: </h1>
-                    <h2>Baked Eggs Benedict</h2>
+                    <span>Eggs Benedict</span>
                     <article class="featured-recipe">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatem enim ab fugit natus
                         totam
-                        vel
-                        soluta? Officiis a iure,
+
                     </article>
                     <a href="#">Get the Recipe</a>
                 </div>
             </div>
-            <img src="photos/side-img-spices.jpeg" class="side-img">
+            <img src="photos/eggs_benedict.jpg" class="side-img">
         </div>
     </header>
     <main>
         <section class="rcp-lastminute">
-            <h3>Time Saving Dishes</h3>
-            <div class="rcp-card">
-                <figure><img src="photos/tacos.jpg" class="card-photo"></figure>
-                <article>
-                    <h4>Easy Tacos</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptates iste perferendis autem
-                        cupiditate? </p>
-                    <a href="#" class="rcp-link">Get the recipe</a>
-                </article>
-                <img src="photos/alarm.svg" class="time-icon">
-                <p>20 min</p>
-            </div>
-            <div class="rcp-card">
-                <figure><img src="photos/chickpea_dish.jpg" class="card-photo"></figure>
-                <article>
-                    <h4>Chickpea Curry</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptates iste perferendis autem
-                        cupiditate?</p>
-                    <a href="#" class="rcp-link">Get the recipe</a>
-                </article>
-                <img src="photos/alarm.svg" class="time-icon">
-                <p>20 min</p>
-            </div>
-            <div class="rcp-card">
-                <figure><img src="photos/salmon.jpg" class="card-photo"></figure>
-                <article>
-                    <h4>Savory Creamy Salmon</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptates iste perferendis autem
-                        cupiditate? </p>
-                    <a href="#" class="rcp-link">Get the recipe</a>
-                </article>
-                <img src="photos/alarm.svg" class="time-icon">
-                <p>15 min</p>
+            <h3 class="recipe-header"><span>Time Saving Dishes</span></h3>
+            <div class="rcp-card-container">
+                <div class="rcp-card">
+                    <figure><img src="photos/tacos.jpg" class="card-photo"></figure>
+                    <article>
+                        <h4>Easy Tacos</h4>
+                        <img src="photos/alarm.svg" class="time-icon">
+                        <p>20 min</p>
+                    </article>
+                </div>
+                <div class="rcp-card">
+                    <figure><img src="photos/chickpea_dish.jpg" class="card-photo"></figure>
+                    <article>
+                        <h4>Chickpea Curry</h4>
+                        <img src="photos/alarm.svg" class="time-icon">
+                        <p>20 min</p>
+                    </article>
+                </div>
+                <div class="rcp-card">
+                    <figure><img src="photos/salmon.jpg" class="card-photo"></figure>
+                    <article>
+                        <h4>Savory Creamy Salmon</h4>
+                        <img src="photos/alarm.svg" class="time-icon">
+                        <p>15 min</p>
+                    </article>
+                </div>
             </div>
         </section>
-        <section>
+        <section class="background-info">
             <div class="background-mid">
-                <h3>Simple Dishes From All Over</h3>
+                <h3 class="recipe-header"><span>Simple Dishes From All Over</span></h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga
                     voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non
                     harum consectetur in optio?
@@ -127,64 +128,65 @@
             </div>
         </section>
         <section class="summer-fav">
-            <h3>Summer Favorites</h3>
-            <div class="rcp-card">
-                <figure><img src="photos/strawberry-salad.jpg" class="card-photo"></figure>
-                <article>
-                    <h4>Strawberry Salad</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptates iste perferendis autem
-                        cupiditate? Delectus, fugit odit eius adipisci esse nam ipsa, iure maxime numquam consequuntur
-                        incidunt iste sit harum.</p>
-                    <a href="#" class="rcp-link">Get the recipe</a>
-                </article>
-                <img src="photos/alarm.svg" class="time-icon">
-                <p>20 min</p>
-            </div>
-            <div class="rcp-card">
-                <figure><img src="photos/chicken-salad.jpg" class="card-photo"></figure>
-                <article>
-                    <h4>Summer Mandarin Salad</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptates iste perferendis autem
-                        cupiditate? Delectus, fugit odit eius adipisci esse nam ipsa, iure maxime numquam consequuntur
-                        incidunt iste sit harum.</p>
-                    <a href="#" class="rcp-link">Get the recipe</a>
-                </article>
-                <img src="photos/alarm.svg" class="time-icon">
-                <p>20 min</p>
-            </div>
-            <div class="rcp-card">
-                <figure><img src="photos/grilled-bass.jpg" class="card-photo"></figure>
-                <article>
-                    <h4>Pan Seared Bass</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptates iste perferendis autem
-                        cupiditate? Delectus, fugit odit eius adipisci esse nam ipsa, iure maxime numquam consequuntur
-                        incidunt iste sit harum.</p>
-                    <a href="#" class="rcp-link">Get the recipe</a>
-                </article>
-                <img src="photos/alarm.svg" class="time-icon">
-                <p>20 min</p>
+            <h3 class="recipe-header"><span>Summer Favorites</span></h3>
+            <div class="rcp-card-container">
+                <div class="rcp-card">
+                    <figure><img src="photos/strawberry-salad.jpg" class="card-photo"></figure>
+                    <article>
+                        <h4>Strawberry Salad</h4>
+                        <img src="photos/alarm.svg" class="time-icon">
+                        <p>20 min</p>
+                    </article>
+
+                </div>
+
+                <div class="rcp-card">
+                    <figure><img src="photos/chicken-salad.jpg" class="card-photo"></figure>
+                    <article>
+                        <h4>Summer Mandarin Salad</h4>
+                        <img src="photos/alarm.svg" class="time-icon">
+                        <p>20 min</p>
+                    </article>
+
+                </div>
+                <div class="rcp-card">
+                    <figure><img src="photos/grilled-bass.jpg" class="card-photo"></figure>
+                    <article>
+                        <h4>Pan Seared Bass</h4>
+                        <img src="photos/alarm.svg" class="time-icon">
+                        <p>20 min</p>
+                    </article>
+
+                </div>
             </div>
         </section>
-        <section>
+        <section class="contact-form">
+            <hr>
             <form class="sign-up">
                 <legend>Get a Recipe Every Week</legend>
                 <p>Sign up for our weekly newsletters, featuring our recipe of the week</p>
-                <label for="email">Enter email</label>
+                <label for="email" id="email">Enter email</label>
                 <input type="email" id="email" name="user-email">
             </form>
             <div id="contact">
                 <p>Connect with Us</p>
-                <img src="photos/facebook.svg" class="social-icon">
-                <img src="photos/instagram.svg" class="social-icon">
-                <img src="photos/twitter.svg" class="social-icon">
-                <img src="photos/youtube.svg" class="social-icon">
-                <img src="photos/pinterest.svg" class="social-icon">
+                <div class="icon-container">
+                    <img src="photos/facebook.svg" class="social-icon">
+                    <img src="photos/instagram.svg" class="social-icon">
+                    <img src="photos/twitter.svg" class="social-icon">
+                    <img src="photos/youtube.svg" class="social-icon">
+                    <img src="photos/pinterest.svg" class="social-icon">
+                </div>
             </div>
         </section>
     </main>
     <footer>
         <p>&copy; Copyright New Recipe Times</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
