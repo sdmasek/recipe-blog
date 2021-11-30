@@ -59,7 +59,12 @@ searchInput.addEventListener("keyup", (e) => {
 });
 
 recipeCard.addEventListener("click", (e) => {
+    const body = document.querySelector("body");
+    const main = document.querySelector("main");
     const recipeModal = document.createElement("div");
+    const recipeModalContainer = document.createElement("div");
+
+    recipeModalContainer.className = "recipe-modal-container";
     recipeModal.className = "recipe-modal";
     // const recipeTitle = e.target.querySelector("h4");
     recipeModal.innerHTML = `
@@ -88,8 +93,10 @@ recipeCard.addEventListener("click", (e) => {
     
     `;
 
-    recipeSection.appendChild(recipeModal);
-    recipeModal.classList.add("overlay");
+    main.appendChild(recipeModalContainer);
+    main.appendChild(recipeModal);
+    recipeModalContainer.classList.add("overlay");
+    // document.classList.add("overlay");
 });
 
 
