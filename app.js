@@ -5,6 +5,7 @@ const recipeSection = document.querySelector(".rcp-card-container");
 const searchInput = document.querySelector(".form-control");
 const form = document.querySelector("form");
 const recipeSearchTerm = document.querySelector("H4");
+const modalContainer = document.querySelector(".recipe-modal-container");
 
 // const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
 //access the recipe card
@@ -62,15 +63,17 @@ recipeCard.addEventListener("click", (e) => {
     const body = document.querySelector("body");
     const main = document.querySelector("main");
     const recipeModal = document.createElement("div");
-    const recipeModalContainer = document.createElement("div");
+    // const recipeModalContainer = document.createElement("div");
 
-    recipeModalContainer.className = "recipe-modal-container";
+    // recipeModalContainer.className = "recipe-modal-container";
     recipeModal.className = "recipe-modal";
     // const recipeTitle = e.target.querySelector("h4");
     recipeModal.innerHTML = `
+        <div class="modal-header">
         <h5 class="recipe-modal-title">Mouthwatering Dish</h5>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non harum consectetur in optio? Dolorem reprehenderit libero neque labore. Quae cumque ipsa praesentium perspiciatis reiciendis dolore officiis libero architecto aperiam deleniti veritatis quasi molestias voluptatem, ducimus beatae veniam deserunt voluptatibus officia dolor! Exercitationem, natus? Itaque quos sit natus sint deleniti in obcaecati facilis, alias libero nemo amet illum dolorem facere provident molestias voluptas vitae eveniet! Soluta tempore ratione voluptates impedit sunt earum. Sed, nulla.
         </p>
+        </div>
         <p>What You'll Need</p>
         <ul>
         <li>1/2 teaspoon Ingredient</li>
@@ -90,14 +93,21 @@ recipeCard.addEventListener("click", (e) => {
         <li>Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. </li>
         <li>Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jícama salsify.</li>
         </ol>
-    
+        
     `;
 
-    main.appendChild(recipeModalContainer);
+    // main.appendChild(modalContainer);
     main.appendChild(recipeModal);
-    recipeModalContainer.classList.add("overlay");
+    modalContainer.classList.remove("hidden");
+    modalContainer.classList.add("overlay");
     // document.classList.add("overlay");
 });
+
+// const modalCLose = recipeModalContainer.querySelector(".close-modal");
+
+// modalCLose.addEventListener('click', () => {
+//     console.log("modal closed");
+// });
 
 
 
