@@ -1,11 +1,14 @@
 //access the heart icon
 const heartIcon = document.querySelector(".svg-icon");
 const recipeCard = document.querySelector(".rcp-card");
+const recipeCards = document.querySelectorAll(".rcp-card");
 const recipeSection = document.querySelector(".rcp-card-container");
 const searchInput = document.querySelector(".form-control");
 const form = document.querySelector("form");
+const main = document.querySelector("main");
 const recipeSearchTerm = document.querySelector("H4");
 const modalContainer = document.querySelector(".recipe-modal-container");
+const recipeModalContainer = document.querySelector(".recipe-modal-container");
 
 // const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
 //access the recipe card
@@ -61,14 +64,14 @@ searchInput.addEventListener("keyup", (e) => {
 
 recipeCard.addEventListener("click", (e) => {
     const body = document.querySelector("body");
-    const main = document.querySelector("main");
+
     const recipeModal = document.createElement("div");
     // const recipeModalContainer = document.createElement("div");
 
-    // recipeModalContainer.className = "recipe-modal-container";
-    recipeModal.className = "recipe-modal";
-    // const recipeTitle = e.target.querySelector("h4");
-    recipeModal.innerHTML = `
+    if (recipeCard) {
+        recipeModal.className = "recipe-modal";
+        // const recipeTitle = e.target.querySelector("h4");
+        recipeModal.innerHTML = `
         <div class="modal-header">
         <h5 class="recipe-modal-title">Mouthwatering Dish</h5>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non harum consectetur in optio? Dolorem reprehenderit libero neque labore. Quae cumque ipsa praesentium perspiciatis reiciendis dolore officiis libero architecto aperiam deleniti veritatis quasi molestias voluptatem, ducimus beatae veniam deserunt voluptatibus officia dolor! Exercitationem, natus? Itaque quos sit natus sint deleniti in obcaecati facilis, alias libero nemo amet illum dolorem facere provident molestias voluptas vitae eveniet! Soluta tempore ratione voluptates impedit sunt earum. Sed, nulla.
@@ -95,6 +98,8 @@ recipeCard.addEventListener("click", (e) => {
         </ol>
         
     `;
+    }
+
 
     // main.appendChild(modalContainer);
     main.appendChild(recipeModal);
@@ -103,11 +108,13 @@ recipeCard.addEventListener("click", (e) => {
     // document.classList.add("overlay");
 });
 
-// const modalCLose = recipeModalContainer.querySelector(".close-modal");
+const modalCLose = recipeModalContainer.querySelector(".modal-close");
 
-// modalCLose.addEventListener('click', () => {
-//     console.log("modal closed");
-// });
+modalCLose.addEventListener('click', () => {
+    console.log("modal closed");
+    modalContainer.classList.remove("overlay");
+    main.removeChild(recipeModal);
+});
 
 
 
