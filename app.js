@@ -61,14 +61,15 @@ searchInput.addEventListener("keyup", (e) => {
         }
     }
 });
+const recipeModal = document.createElement("div");
 
 recipeCard.addEventListener("click", (e) => {
     const body = document.querySelector("body");
 
-    const recipeModal = document.createElement("div");
+
     // const recipeModalContainer = document.createElement("div");
 
-    if (recipeCard) {
+    for (let i = 0; i < recipeCards.length; i++) {
         recipeModal.className = "recipe-modal";
         // const recipeTitle = e.target.querySelector("h4");
         recipeModal.innerHTML = `
@@ -113,7 +114,7 @@ const modalCLose = recipeModalContainer.querySelector(".modal-close");
 modalCLose.addEventListener('click', () => {
     console.log("modal closed");
     modalContainer.classList.remove("overlay");
-    main.removeChild(recipeModal);
+    recipeModal.classList.add("hidden");
 });
 
 
