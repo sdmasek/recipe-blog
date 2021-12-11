@@ -9,6 +9,7 @@ const main = document.querySelector("main");
 const recipeSearchTerm = document.querySelector("H4");
 const modalContainer = document.querySelector(".recipe-modal-container");
 const recipeModalContainer = document.querySelector(".recipe-modal-container");
+const modalCLose = recipeModalContainer.querySelector(".modal-close");
 
 // const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
 //access the recipe card
@@ -102,14 +103,14 @@ recipeCard.addEventListener("click", (e) => {
     }
 
 
-    // main.appendChild(modalContainer);
+
     main.appendChild(recipeModal);
     modalContainer.classList.remove("hidden");
+    modalClose.classList.remove("hidden");
     modalContainer.classList.add("overlay");
-    // document.classList.add("overlay");
+
 });
 
-const modalCLose = recipeModalContainer.querySelector(".modal-close");
 
 modalCLose.addEventListener('click', () => {
     console.log("modal closed");
