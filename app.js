@@ -1,15 +1,17 @@
+
+
 //access the heart icon
-const heartIcon = document.querySelector(".svg-icon");
+// const heartIcon = document.querySelector(".svg-icon");
 const recipeCard = document.querySelector(".rcp-card");
-const recipeCards = document.querySelectorAll(".rcp-card");
-const recipeSection = document.querySelector(".rcp-card-container");
+// const recipeCards = document.querySelectorAll(".rcp-card");
+const recipeSection = document.querySelectorAll(".rcp-card-container");
 const searchInput = document.querySelector(".form-control");
 const form = document.querySelector("form");
 const main = document.querySelector("main");
 const recipeSearchTerm = document.querySelector("H4");
 const modalContainer = document.querySelector(".recipe-modal-container");
 const recipeModalContainer = document.querySelector(".recipe-modal-container");
-const modalCLose = recipeModalContainer.querySelector(".modal-close");
+const modalClose = document.querySelector(".modal-close");
 
 // const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
 //access the recipe card
@@ -22,8 +24,8 @@ const modalCLose = recipeModalContainer.querySelector(".modal-close");
 
 // ];
 
-recipeDiv = document.createElement("div");
-recipeLi = document.createElement("li");
+const recipeDiv = document.createElement("div");
+const recipeLi = document.createElement("li");
 
 recipeDiv.className = "recipe-search-container";
 recipeLi.className = "recipe-search-item";
@@ -64,13 +66,15 @@ searchInput.addEventListener("keyup", (e) => {
 });
 const recipeModal = document.createElement("div");
 
-recipeCard.addEventListener("click", (e) => {
+recipeSection.addEventListener("click", (e) => {
+    console.log("clicked");
     const body = document.querySelector("body");
 
 
     // const recipeModalContainer = document.createElement("div");
 
-    for (let i = 0; i < recipeCards.length; i++) {
+    if (e.target !== recipeSection) {
+        console.log("card clicked");
         recipeModal.className = "recipe-modal";
         // const recipeTitle = e.target.querySelector("h4");
         recipeModal.innerHTML = `
@@ -100,19 +104,21 @@ recipeCard.addEventListener("click", (e) => {
         </ol>
         
     `;
+
+
+
     }
-
-
-
     main.appendChild(recipeModal);
     modalContainer.classList.remove("hidden");
     modalClose.classList.remove("hidden");
     modalContainer.classList.add("overlay");
 
+
+
 });
 
 
-modalCLose.addEventListener('click', () => {
+modalClose.addEventListener('click', () => {
     console.log("modal closed");
     modalContainer.classList.remove("overlay");
     recipeModal.classList.add("hidden");
