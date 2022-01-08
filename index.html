@@ -16,7 +16,8 @@
 <body>
     <header class="header">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a href="#" class="navbar-brand"><img src="photos/easy_cooking_header.png" class="nav-img"></a>
+            <a href="#" class="navbar-brand"><img src="photos/easy_cooking_header.png" class="nav-img"
+                    alt="header that displays the words Easy Cooking"></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,7 +68,8 @@
         <div class="featured">
             <!-- <img src="photos/side-img-spices.jpeg" class="side-img"> -->
             <div class="header-card">
-                <figure class="banner"><img src="photos/calum-lewis-rkT_TG5NKF8-unsplash.jpg" class="header-img">
+                <figure class="banner"><img src="photos/calum-lewis-rkT_TG5NKF8-unsplash.jpg" class="header-img"
+                        alt="background picture of baking ingredients featuring eggs, flour, honey, and utensils" />
                 </figure>
                 <div class="featured-card">
                     <h1>Featured Dish: </h1>
@@ -80,90 +82,109 @@
                     <a href="#">Get the Recipe</a>
                 </div>
             </div>
-            <img src="photos/eggs_benedict.jpg" class="side-img">
+            <img src="photos/eggs_benedict.jpg" class="side-img"
+                alt="top down photo of eggs benedict on a white plate with sliced tomatoes on the side" />
         </div>
     </header>
     <main>
-        <section class="rcp-lastminute">
-            <h3 class="recipe-header"><span>Time Saving Dishes</span></h3>
-            <div class="rcp-card-container">
-                <div class="rcp-card">
-                    <figure><img src="photos/veganfood_ex.jpg" class="card-photo"></figure>
-                    <article>
-                        <h4>Easy Tacos</h4>
-                        <img src="photos/alarm.svg" class="time-icon">
-                        <p>20 min</p>
-                        <img src="photos/svg-icon.png" class="add-icon" />
-                    </article>
-                </div>
-                <div class="rcp-card">
-                    <figure><img src="photos/soup_ex.jpg" class="card-photo"></figure>
-                    <article>
-                        <h4>Creamy Veggie Curry</h4>
-                        <img src="photos/alarm.svg" class="time-icon" />
-                        <p>20 min</p>
-                    </article>
-                </div>
-                <div class="rcp-card">
-                    <figure><img src="photos/salmon.jpg" class="card-photo"></figure>
-                    <article>
-                        <h4>Savory Butter Lemon Salmon</h4>
-                        <img src="photos/alarm.svg" class="time-icon" />
-                        <p>15 min</p>
-                    </article>
-                </div>
+        <section class="recipes">
+            <div class="rcp-lastminute">
+                <h3 class="recipe-header"><span>Time Saving Dishes</span></h3>
+                <div class="rcp-card-container">
+                    <div class="rcp-card">
+                        <figure class="img-container"><img src="photos/tacos.jpg"
+                                data-food-caption="Mexican easy lime cilantro pork" class="card-photo"
+                                alt="photo of pulled pork tacos with lime and cilantro garnish">
+                        </figure>
+                        <article>
+                            <h4>Easy Tacos</h4>
+                            <img src="photos/alarm.svg" class="time-icon" alt="small icon of an alarm clock" />
+                            <p>20 min</p>
 
-            </div>
-        </section>
-        <section class="background-info">
-            <div class="background-mid">
-                <h3 class="recipe-header"><span>Simple Dishes From All Over</span></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga
-                    voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non
-                    harum consectetur in optio?
-                    Dolorem reprehenderit libero neque labore. Quae cumque ipsa praesentium perspiciatis reiciendis
-                    dolore officiis libero architecto aperiam deleniti veritatis quasi molestias voluptatem, ducimus
-                    beatae veniam deserunt voluptatibus officia dolor! Exercitationem, natus?
-                    Itaque quos sit natus sint deleniti in obcaecati facilis, alias libero nemo amet illum dolorem
-                    facere provident molestias voluptas vitae eveniet! Soluta tempore ratione voluptates impedit sunt
-                    earum. Sed, nulla.</p>
-            </div>
-        </section>
-        <section class="summer-fav">
-            <h3 class="recipe-header"><span>Seasonal Favorites</span></h3>
-            <div class="rcp-card-container">
-                <div class="rcp-card">
-                    <figure><img src="photos/strawberry-salad.jpg" class="card-photo"></figure>
-                    <article>
-                        <h4>Strawberry Salad</h4>
-                        <img src="photos/alarm.svg" class="time-icon">
-                        <p>20 min</p>
-                    </article>
-
-                </div>
-
-                <div class="rcp-card">
-                    <figure><img src="photos/chicken-salad.jpg" class="card-photo"></figure>
-                    <article>
-                        <h4>Summer Mandarin Salad</h4>
-                        <img src="photos/alarm.svg" class="time-icon">
-                        <p>20 min</p>
-                    </article>
-
-                </div>
-                <div class="rcp-card">
-                    <figure><img src="photos/grilled-bass.jpg" class="card-photo"></figure>
-                    <article>
-                        <h4>Pan Seared Bass</h4>
-                        <img src="photos/alarm.svg" class="time-icon">
-                        <p>20 min</p>
-                    </article>
+                        </article>
+                    </div>
+                    <div class="rcp-card">
+                        <figure class="img-container"><img src="photos/soup_ex.jpg"
+                                data-food-caption="soup vegetarian squash pumpkin creamy fall autumn" class="card-photo"
+                                alt="top down photo of pumpkin soup with nut garnish"></figure>
+                        <article>
+                            <h4>Creamy Pumpkin Soup</h4>
+                            <img src="photos/alarm.svg" class="time-icon" alt="small icon of an alarm clock" />
+                            <p>20 min</p>
+                        </article>
+                    </div>
+                    <div class="rcp-card">
+                        <figure class="img-container"><img src="photos/salmon.jpg" class="card-photo"
+                                data-food-caption="lemon salmon fish butter sauce citrus"
+                                alt="photo of two salmon topped with lemon wedges in a pan with a lemon butter sauce" />
+                        </figure>
+                        <article>
+                            <h4>Savory Butter Lemon Salmon</h4>
+                            <img src="photos/alarm.svg" class="time-icon" alt="small icon of an alarm clock" />
+                            <p>15 min</p>
+                        </article>
+                    </div>
 
                 </div>
             </div>
-            <div class="recipe-modal-container hidden">
-                <button class="modal-close hidden">X</button>
+            <article class="background-info">
+                <div class="background-mid">
+                    <h3 class="recipe-header"><span>Simple Dishes From All Over</span></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga
+                        voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non
+                        harum consectetur in optio?
+                        Dolorem reprehenderit libero neque labore. Quae cumque ipsa praesentium perspiciatis reiciendis
+                        dolore officiis libero architecto aperiam deleniti veritatis quasi molestias voluptatem, ducimus
+                        beatae veniam deserunt voluptatibus officia dolor! Exercitationem, natus?
+                        Itaque quos sit natus sint deleniti in obcaecati facilis, alias libero nemo amet illum dolorem
+                        facere provident molestias voluptas vitae eveniet! Soluta tempore ratione voluptates impedit
+                        sunt
+                        earum. Sed, nulla.</p>
+                </div>
+            </article>
+            <div class="summer-fav">
+                <h3 class="recipe-header"><span>Seasonal Favorites</span></h3>
+                <div class="rcp-card-container">
+                    <div class="rcp-card">
+                        <figure class="img-container"><img src="photos/strawberry-salad.jpg" class="card-photo"
+                                data-food-caption="strawberry fruit salad vegetarian fresh lettuce spring spinach"
+                                alt="photo of a strawberry salad topped with goat cheese and nuts" /></figure>
+                        <article>
+                            <h4>Strawberry Spinach Salad</h4>
+                            <img src="photos/alarm.svg" class="time-icon" alt="small icon of an alarm clock" />
+                            <p>5 min</p>
+                        </article>
 
+                    </div>
+
+                    <div class="rcp-card">
+                        <figure class="img-container"><img src="photos/chicken-salad.jpg" class="card-photo"
+                                data-food-caption="summer chicken raisins orange mandarin salad fresh vegetarian"
+                                alt="photo of a summer inspired mandarin salad topped with mandarin slices, chicken and raisins">
+                        </figure>
+                        <article>
+                            <h4>Summer Mandarin Salad</h4>
+                            <img src="photos/alarm.svg" class="time-icon" alt="small icon of an alarm clock" />
+                            <p>5 min</p>
+                        </article>
+
+                    </div>
+                    <div class="rcp-card">
+                        <figure class="img-container"><img src="photos/pexels-farhad-ibrahimzade-8697539.jpg"
+                                class="card-photo" data-food-caption="shrimp seafood lemon butter cilantro pepper"
+                                alt="photo of grilled shrimp in a black ceramic pan" /></figure>
+                        <article>
+                            <h4>Grilled Seasoned Shrimp</h4>
+                            <img src="photos/alarm.svg" class="time-icon" alt="small icon of an alarm clock" />
+                            <p>15 min</p>
+                        </article>
+
+                    </div>
+                </div>
+                <div class="recipe-modal-container hidden">
+                    <button class="modal-close hidden">X</button>
+
+                </div>
             </div>
         </section>
         <section class="contact-form">
@@ -171,17 +192,19 @@
             <form class="sign-up">
                 <h3>Get a Recipe Every Week</h3>
                 <p>Sign up for our weekly newsletters, featuring our recipe of the week</p>
-                <label for="email" id="email">Enter email</label>
+                <label for="email">Enter email</label>
                 <input type="email" id="email" name="user-email">
             </form>
             <div id="contact">
                 <p>Connect with Us</p>
                 <div class="icon-container">
-                    <a href="#"><img src="photos/facebook.svg" class="social-icon" /></a>
-                    <a href="#"><img src="photos/instagram.svg" class="social-icon" /></a>
-                    <a href="#"><img src="photos/twitter.svg" class="social-icon" /></a>
-                    <a href="#"><img src="photos/youtube.svg" class="social-icon" /></a>
-                    <a href="#"><img src="photos/pinterest.svg" class="social-icon" /></a>
+                    <a href="#"><img src="photos/facebook.svg" class="social-icon" alt="icon image for facebook" /></a>
+                    <a href="#"><img src="photos/instagram.svg" class="social-icon"
+                            alt="icon image for instagram" /></a>
+                    <a href="#"><img src="photos/twitter.svg" class="social-icon" alt="icon image for twitter" /></a>
+                    <a href="#"><img src="photos/youtube.svg" class="social-icon" alt="icon image for youtube" /></a>
+                    <a href="#"><img src="photos/pinterest.svg" class="social-icon"
+                            alt="icon image for pinterest" /></a>
                 </div>
             </div>
         </section>

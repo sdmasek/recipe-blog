@@ -3,8 +3,8 @@
 //access the heart icon
 // const heartIcon = document.querySelector(".svg-icon");
 const recipeCard = document.querySelector(".rcp-card");
-// const recipeCards = document.querySelectorAll(".rcp-card");
-const recipeSection = document.querySelectorAll(".rcp-card-container");
+const recipeCards = document.querySelectorAll(".rcp-card");
+const recipeSection = document.querySelector(".recipes");
 const searchInput = document.querySelector(".form-control");
 const form = document.querySelector("form");
 const main = document.querySelector("main");
@@ -29,18 +29,24 @@ const recipeLi = document.createElement("li");
 
 recipeDiv.className = "recipe-search-container";
 recipeLi.className = "recipe-search-item";
-//recipes is just the callback, you don't have to actually use the
-//recipes array for this
-displaySearch = (recipes) => {
-    for (let i = 0; i < recipes.length; i++) {
+
+//get the figure element to access the img element
+
+//get all images that have the data-food-type tag
+const recipeImages = document.querySelectorAll(".card-photo");
+
+//displays the recipe in a text format
+displaySearch = (recipeCards) => {
+    for (let i = 0; i < recipeCards.length; i++) {
         //use pre-made variables to store the newly created innerHTML elements in
         recipeLi.textContent = searchInput.value;
         console.log(searchInput.value);
         recipeDiv.innerHTML = `
             <ul>
-            <li class="recipe-search-item">${recipes}</li>
+            <li class="recipe-search-item">${recipeCards}</li>
             </ul>
         `;
+
 
     }
     form.appendChild(recipeDiv);
@@ -51,16 +57,18 @@ displaySearch = (recipes) => {
 
 const recipeTitles = document.querySelectorAll("h4");
 
-//search for recipes 
+//search for recipes using the titles from the h4's
 searchInput.addEventListener("keyup", (e) => {
     //switch the search value to lowercase
     let search = e.target.value.toLowerCase();
-    for (let i = 0; i < recipeTitles.length; i++) {
-        let recipeText = recipeTitles[i].textContent;
+    for (let i = 0; i < recipeCards.length; i++) {
+        const figureContainer = document.querySelector(".img-container");
+        let recipeCaption = recipeImages[i].getAttribute("data-food-caption");
+        let recipeTitle = recipeCards[i].querySelector("h4");
 
-        if (recipeText.toLowerCase().includes(search)) {
-            console.log(recipeText);
-            displaySearch(recipeText);
+        if (recipeCaption.toLowerCase().includes(search)) {
+            console.log(recipeTitle);
+            // displaySearch(recipeText);
         }
     }
 });
