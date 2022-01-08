@@ -68,7 +68,7 @@ searchInput.addEventListener("keyup", (e) => {
 
         if (recipeCaption.toLowerCase().includes(search)) {
             console.log(recipeTitle);
-            // displaySearch(recipeText);
+            displaySearch(recipeTitle);
         }
     }
 });
@@ -77,15 +77,14 @@ const recipeModal = document.createElement("div");
 recipeSection.addEventListener("click", (e) => {
     console.log("clicked");
     const body = document.querySelector("body");
+    for (let i = 0; i < recipeCards.length; i++) {
+        // const recipeModalContainer = document.createElement("div");
 
-
-    // const recipeModalContainer = document.createElement("div");
-
-    if (e.target !== recipeSection) {
-        console.log("card clicked");
-        recipeModal.className = "recipe-modal";
-        // const recipeTitle = e.target.querySelector("h4");
-        recipeModal.innerHTML = `
+        if (e.target !== recipeSection) {
+            console.log("card clicked");
+            recipeModal.className = "recipe-modal";
+            // const recipeTitle = e.target.querySelector("h4");
+            recipeModal.innerHTML = `
         <div class="modal-header">
         <h5 class="recipe-modal-title">Mouthwatering Dish</h5>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non harum consectetur in optio? Dolorem reprehenderit libero neque labore. Quae cumque ipsa praesentium perspiciatis reiciendis dolore officiis libero architecto aperiam deleniti veritatis quasi molestias voluptatem, ducimus beatae veniam deserunt voluptatibus officia dolor! Exercitationem, natus? Itaque quos sit natus sint deleniti in obcaecati facilis, alias libero nemo amet illum dolorem facere provident molestias voluptas vitae eveniet! Soluta tempore ratione voluptates impedit sunt earum. Sed, nulla.
@@ -115,11 +114,15 @@ recipeSection.addEventListener("click", (e) => {
 
 
 
+        }
+        recipeCards[i].appendChild(recipeModal);
+        modalContainer.classList.remove("hidden");
+        modalClose.classList.remove("hidden");
+        modalContainer.classList.add("overlay");
     }
-    main.appendChild(recipeModal);
-    modalContainer.classList.remove("hidden");
-    modalClose.classList.remove("hidden");
-    modalContainer.classList.add("overlay");
+
+
+
 
 
 
@@ -128,8 +131,9 @@ recipeSection.addEventListener("click", (e) => {
 
 modalClose.addEventListener('click', () => {
     console.log("modal closed");
+    main.removeChild(recipeModal);
     modalContainer.classList.remove("overlay");
-    recipeModal.classList.add("hidden");
+    modalContainer.classList.add("hidden");
 });
 
 
