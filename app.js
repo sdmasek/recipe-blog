@@ -36,14 +36,14 @@ recipeLi.className = "recipe-search-item";
 const recipeImages = document.querySelectorAll(".card-photo");
 
 //displays the recipe in a text format
-displaySearch = (recipeCards) => {
+displaySearch = (recipeSearch) => {
     for (let i = 0; i < recipeCards.length; i++) {
         //use pre-made variables to store the newly created innerHTML elements in
         recipeLi.textContent = searchInput.value;
         console.log(searchInput.value);
         recipeDiv.innerHTML = `
             <ul>
-            <li class="recipe-search-item">${recipeCards}</li>
+            <li class="recipe-search-item">${recipeSearch}</li>
             </ul>
         `;
 
@@ -65,6 +65,7 @@ searchInput.addEventListener("keyup", (e) => {
         const figureContainer = document.querySelector(".img-container");
         let recipeCaption = recipeImages[i].getAttribute("data-food-caption");
         let recipeTitle = recipeCards[i].querySelector("h4");
+        recipeTitle = recipeTitle.textContent;
 
         if (recipeCaption.toLowerCase().includes(search)) {
             console.log(recipeTitle);
@@ -115,7 +116,7 @@ recipeSection.addEventListener("click", (e) => {
 
 
         }
-        recipeCards[i].appendChild(recipeModal);
+        main.appendChild(recipeModal);
         modalContainer.classList.remove("hidden");
         modalClose.classList.remove("hidden");
         modalContainer.classList.add("overlay");
