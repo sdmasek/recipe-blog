@@ -10,7 +10,7 @@ const form = document.querySelector("form");
 const main = document.querySelector("main");
 const recipeSearchTerm = document.querySelector("H4");
 const modalContainer = document.querySelector(".recipe-modal-container");
-const recipeModalContainer = document.querySelector(".recipe-modal-container");
+// const recipeModalContainer = document.querySelector(".recipe-modal-container");
 const modalClose = document.querySelector(".modal-close");
 
 // const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
@@ -26,9 +26,11 @@ const modalClose = document.querySelector(".modal-close");
 
 const recipeDiv = document.createElement("div");
 const recipeLi = document.createElement("li");
+const recipeLink = document.createElement("a");
 
 recipeDiv.className = "recipe-search-container";
 recipeLi.className = "recipe-search-item";
+recipeLink.className = "recipe-search-link";
 
 //get the figure element to access the img element
 
@@ -43,9 +45,13 @@ displaySearch = (recipeSearch) => {
         console.log(searchInput.value);
         recipeDiv.innerHTML = `
             <ul>
-            <li class="recipe-search-item">${recipeSearch}</li>
+            <li class="recipe-search-item">
+            <a class = "recipe-search-link" href="#">${recipeSearch}</a>
+            <a class = "recipe-search-link" href="#">${recipeSearch}</a>
+            </li>
             </ul>
         `;
+
 
 
     }
@@ -54,7 +60,6 @@ displaySearch = (recipeSearch) => {
         form.removeChild(recipeDiv);
     }
 }
-
 const recipeTitles = document.querySelectorAll("h4");
 
 //search for recipes using the titles from the h4's
@@ -73,6 +78,7 @@ searchInput.addEventListener("keyup", (e) => {
         }
     }
 });
+
 const recipeModal = document.createElement("div");
 
 recipeSection.addEventListener("click", (e) => {
@@ -80,6 +86,7 @@ recipeSection.addEventListener("click", (e) => {
     const body = document.querySelector("body");
     for (let i = 0; i < recipeCards.length; i++) {
         // const recipeModalContainer = document.createElement("div");
+
 
         if (e.target !== recipeSection) {
             console.log("card clicked");
@@ -116,7 +123,12 @@ recipeSection.addEventListener("click", (e) => {
 
 
         }
-        main.appendChild(recipeModal);
+        const recipeCardPosition = recipeCards[i].getBoundingClientRect();
+        let modalContainerPosition = modalContainer.getBoundingClientRect();
+        let comparePosition = recipeCards[i].compareDocumentPosition(modalContainer);
+        console.log(comparePosition);
+        // console.log(modalContainerPosition);
+        // console.log(recipeCardPosition);
         modalContainer.classList.remove("hidden");
         modalClose.classList.remove("hidden");
         modalContainer.classList.add("overlay");
