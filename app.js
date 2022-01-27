@@ -43,19 +43,22 @@ displaySearch = (recipeSearch) => {
         //use pre-made variables to store the newly created innerHTML elements in
         recipeLi.textContent = searchInput.value;
         console.log(searchInput.value);
+        // console.log(recipeSearch.innerHTML);
         recipeDiv.innerHTML = `
             <ul>
             <li class="recipe-search-item">
             <a class = "recipe-search-link" href="#">${recipeSearch}</a>
+            </li>
+            </ul>
+            <ul>
+            <li class="recipe-search-item">
             <a class = "recipe-search-link" href="#">${recipeSearch}</a>
             </li>
             </ul>
         `;
-
-
-
     }
     form.appendChild(recipeDiv);
+
     if (recipeLi.textContent === "") {
         form.removeChild(recipeDiv);
     }
@@ -76,6 +79,7 @@ searchInput.addEventListener("keyup", (e) => {
             console.log(recipeTitle);
             displaySearch(recipeTitle);
         }
+
     }
 });
 
@@ -127,11 +131,16 @@ recipeSection.addEventListener("click", (e) => {
         let modalContainerPosition = modalContainer.getBoundingClientRect();
         let comparePosition = recipeCards[i].compareDocumentPosition(modalContainer);
         console.log(comparePosition);
+        if (comparePosition === 4) {
+            modalContainer.appendChild(recipeModal);
+            console.log("compared to 4");
+            modalContainer.classList.remove("hidden");
+            modalClose.classList.remove("hidden");
+            modalContainer.classList.add("overlay");
+        }
         // console.log(modalContainerPosition);
         // console.log(recipeCardPosition);
-        modalContainer.classList.remove("hidden");
-        modalClose.classList.remove("hidden");
-        modalContainer.classList.add("overlay");
+
     }
 
 
