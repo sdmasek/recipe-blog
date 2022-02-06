@@ -12,17 +12,28 @@ const recipeSearchTerm = document.querySelector("H4");
 const modalContainer = document.querySelector(".recipe-modal-container");
 // const recipeModalContainer = document.querySelector(".recipe-modal-container");
 const modalClose = document.querySelector(".modal-close");
+const recipeTitles = document.querySelectorAll("h4");
+//get all images that have the data-food-type tag
+const recipeImages = document.querySelectorAll(".card-photo");
 
 // const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
 //access the recipe card
 // const recipe = document.querySelector(".rcp-card");
 // const recipes = [
-//     `easy pulled pork tacos, creamy veggie curry, savory butter lemon salmon,
+//     `easy tacos, creamy veggie curry, savory butter lemon salmon,
 //     eggs benedict, strawberry salad, summer mandarin salid, pan seared bass
 
 //     `
 
 // ];
+
+const datacaptionsList = [
+    "lemon", "salmon", "fish", "seafood", "dinner", "butter", "sauce", "citrus",
+    "soup", "vegetarian", "lunch", "squash", "pumpkin", "creamy", "fall", "autumn",
+    "mexican", "easy", "lime", "cilantro", "pork", "strawberry", "fruit", "salad", "vegetarian",
+    "fresh", "lettuce", "spring", "spinach", "summer", "chicken", "raisins", "orange",
+    "mandarin", "shrimp", "grill", "pepper"
+]
 
 const recipeDiv = document.createElement("div");
 const recipeLi = document.createElement("li");
@@ -34,50 +45,57 @@ recipeLink.className = "recipe-search-link";
 
 //get the figure element to access the img element
 
-//get all images that have the data-food-type tag
-const recipeImages = document.querySelectorAll(".card-photo");
+
 
 //displays the recipe in a text format
+//took away for loop here because there's already one in the search input listener
 displaySearch = (recipeSearch) => {
-    for (let i = 0; i < recipeCards.length; i++) {
-        //use pre-made variables to store the newly created innerHTML elements in
-        recipeLi.textContent = searchInput.value;
-        console.log(searchInput.value);
-        // console.log(recipeSearch.innerHTML);
-        recipeDiv.innerHTML = `
-            <ul>
-            <li class="recipe-search-item">
-            <a class = "recipe-search-link" href="#">${recipeSearch}</a>
-            </li>
-            </ul>
+    //use pre-made variables to store the newly created innerHTML elements in
+    recipeLi.textContent = searchInput.value;
+    console.log(searchInput.value);
+    // console.log(recipeSearch.innerHTML);
+    recipeDiv.innerHTML += `
             <ul>
             <li class="recipe-search-item">
             <a class = "recipe-search-link" href="#">${recipeSearch}</a>
             </li>
             </ul>
         `;
-    }
+
     form.appendChild(recipeDiv);
 
     if (recipeLi.textContent === "") {
         form.removeChild(recipeDiv);
     }
+
 }
-const recipeTitles = document.querySelectorAll("h4");
+
+//get the data caption from each image to compare later in the loop
 
 //search for recipes using the titles from the h4's
 searchInput.addEventListener("keyup", (e) => {
     //switch the search value to lowercase
     let search = e.target.value.toLowerCase();
+    //initialize new recipe array
+
     for (let i = 0; i < recipeCards.length; i++) {
+        let recipes = []
         const figureContainer = document.querySelector(".img-container");
         let recipeCaption = recipeImages[i].getAttribute("data-food-caption");
+
         let recipeTitle = recipeCards[i].querySelector("h4");
         recipeTitle = recipeTitle.textContent;
 
         if (recipeCaption.toLowerCase().includes(search)) {
-            console.log(recipeTitle);
-            displaySearch(recipeTitle);
+            // console.log(recipeTitle);
+            const recipeMatch = datacaptionsList.filter(datacaption => {
+                if (datacaption === recipeCaption) {
+                    recipes.push;
+
+                }
+                return recipeTitle;
+            });
+            displaySearch(recipeMatch);
         }
 
     }
