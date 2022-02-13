@@ -86,17 +86,19 @@ searchInput.addEventListener("keyup", (e) => {
         let recipeTitle = recipeCards[i].querySelector("h4");
         recipeTitle = recipeTitle.textContent;
 
-        if (recipeCaption.toLowerCase().includes(search)) {
-            // console.log(recipeTitle);
-            const recipeMatch = datacaptionsList.filter(datacaption => {
-                if (datacaption === recipeCaption) {
-                    recipes.push;
+        const recipeMatch = datacaptionsList.filter(datacaption => {
 
-                }
-                return recipeTitle;
-            });
-            displaySearch(recipeMatch);
-        }
+            if (recipeCaption.toLowerCase().includes(search)) {
+                // console.log(recipeTitle);
+                recipes.push(recipeTitle);
+
+                console.log(recipes);
+            }
+
+        });
+        displaySearch(recipeMatch);
+
+
 
     }
 });
