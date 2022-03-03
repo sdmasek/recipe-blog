@@ -4,6 +4,7 @@
 // const heartIcon = document.querySelector(".svg-icon");
 const recipeCard = document.querySelector(".rcp-card");
 const recipeCards = document.querySelectorAll(".rcp-card");
+const recipeModal = document.querySelector(".recipe-modal");
 const recipeSection = document.querySelector(".recipes");
 const searchInput = document.querySelector(".form-control");
 const form = document.querySelector("form");
@@ -15,17 +16,12 @@ const modalClose = document.querySelector(".modal-close");
 const recipeTitles = document.querySelectorAll("h4");
 //get all images that have the data-food-type tag
 const recipeImages = document.querySelectorAll(".card-photo");
+let recipes = [];
 
-// const recipeUrl = "www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
-//access the recipe card
-// const recipe = document.querySelector(".rcp-card");
-// const recipes = [
-//     `easy tacos, creamy veggie curry, savory butter lemon salmon,
-//     eggs benedict, strawberry salad, summer mandarin salid, pan seared bass
 
-//     `
-
-// ];
+//event listeners
+recipeSection.addEventListener("click", clickRecipe);
+searchInput.addEventListener("keyup", searchRecipes);
 
 const datacaptionsList = [
     "lemon", "salmon", "fish", "seafood", "dinner", "butter", "sauce", "citrus",
@@ -52,7 +48,7 @@ recipeLink.className = "recipe-search-link";
 displaySearch = (recipeSearch) => {
     //use pre-made variables to store the newly created innerHTML elements in
     recipeLi.textContent = searchInput.value;
-    console.log(searchInput.value);
+    // console.log(searchInput.value);
     // console.log(recipeSearch.innerHTML);
     recipeDiv.innerHTML += `
             <ul>
@@ -70,53 +66,45 @@ displaySearch = (recipeSearch) => {
 
 }
 
-//get the data caption from each image to compare later in the loop
-
 //search for recipes using the titles from the h4's
-searchInput.addEventListener("keyup", (e) => {
+function searchRecipes(e) {
     //switch the search value to lowercase
     let search = e.target.value.toLowerCase();
-    //initialize new recipe array
 
+    // go through each recipe card to get datacaption and title
     for (let i = 0; i < recipeCards.length; i++) {
-        let recipes = []
-        const figureContainer = document.querySelector(".img-container");
+        //initialize new recipe array
+
         let recipeCaption = recipeImages[i].getAttribute("data-food-caption");
 
         let recipeTitle = recipeCards[i].querySelector("h4");
         recipeTitle = recipeTitle.textContent;
-
+        //filter through datacaption array and if the search's title matches
+        //the datacaption, push that title to the recipes array
         const recipeMatch = datacaptionsList.filter(datacaption => {
+            // recipeCaption.toLowerCase().includes(search)
+            if (search.toLowerCase().includes(datacaption)) {
+                if (recipeCaption.includes(datacaption)) {
+                    recipes.push(recipeTitle);
 
-            if (recipeCaption.toLowerCase().includes(search)) {
-                // console.log(recipeTitle);
-                recipes.push(recipeTitle);
-
-                console.log(recipes);
+                    console.log(recipeTitle);
+                }
             }
 
         });
         displaySearch(recipeMatch);
 
-
-
     }
-});
 
-const recipeModal = document.createElement("div");
+}
 
-recipeSection.addEventListener("click", (e) => {
+function clickRecipe(e) {
+
     console.log("clicked");
-    const body = document.querySelector("body");
     for (let i = 0; i < recipeCards.length; i++) {
-        // const recipeModalContainer = document.createElement("div");
-
-
-        if (e.target !== recipeSection) {
+        if (e.target.value !== recipeSection) {
             console.log("card clicked");
-            recipeModal.className = "recipe-modal";
-            // const recipeTitle = e.target.querySelector("h4");
-            recipeModal.innerHTML = `
+            let html = `
         <div class="modal-header">
         <h5 class="recipe-modal-title">Mouthwatering Dish</h5>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis officia ullam deleniti fuga voluptas asperiores suscipit sed alias quaerat cum quos sequi, libero inventore repellendus non harum consectetur in optio? Dolorem reprehenderit libero neque labore. Quae cumque ipsa praesentium perspiciatis reiciendis dolore officiis libero architecto aperiam deleniti veritatis quasi molestias voluptatem, ducimus beatae veniam deserunt voluptatibus officia dolor! Exercitationem, natus? Itaque quos sit natus sint deleniti in obcaecati facilis, alias libero nemo amet illum dolorem facere provident molestias voluptas vitae eveniet! Soluta tempore ratione voluptates impedit sunt earum. Sed, nulla.
@@ -144,38 +132,23 @@ recipeSection.addEventListener("click", (e) => {
         
     `;
 
-
+            recipeModal.innerHTML = html;
 
         }
-        const recipeCardPosition = recipeCards[i].getBoundingClientRect();
-        let modalContainerPosition = modalContainer.getBoundingClientRect();
-        let comparePosition = recipeCards[i].compareDocumentPosition(modalContainer);
-        console.log(comparePosition);
-        if (comparePosition === 4) {
-            modalContainer.appendChild(recipeModal);
-            console.log("compared to 4");
-            modalContainer.classList.remove("hidden");
-            modalClose.classList.remove("hidden");
-            modalContainer.classList.add("overlay");
-        }
-        // console.log(modalContainerPosition);
-        // console.log(recipeCardPosition);
+
+        recipeModal.parentElement.classList.remove("hidden");
+        modalClose.classList.remove("hidden");
+        modalContainer.classList.add("overlay");
 
     }
 
-
-
-
-
-
-});
+}
 
 
 modalClose.addEventListener('click', () => {
     console.log("modal closed");
-    main.removeChild(recipeModal);
-    modalContainer.classList.remove("overlay");
-    modalContainer.classList.add("hidden");
+    recipeModal.parentElement.classList.remove("overlay");
+    recipeModal.parentElement.classList.add("hidden");
 });
 
 

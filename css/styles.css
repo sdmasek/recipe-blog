@@ -189,37 +189,44 @@ span{
 }
 
 .recipe-modal{
-    width: 75%;
+    width: 50%;
     max-height: 90vh;
     display: flex;
+    display: block;
     flex-direction: column;
     padding: 2em;
+    margin: 0 auto;
     background-color: #fff;
     top: 30px;
     right: 50px;
     left: 50px;
     bottom: 30px;
-    position: absolute;
+    position: fixed;
     overflow-y: scroll;
+    z-index: 1000;
     
 }
 
 .recipe-modal-container{
-    width: 100%;
+    width: 70%;
     height: 100vh;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    z-index: 1000;
  
 }
 
 .overlay{
-    position: absolute;
+    position: fixed;
+    /* display: block; */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(100,100,100, 0.7);
+    z-index: 1000;
 }
 
 .hidden{
@@ -237,10 +244,20 @@ span{
 }
 
 .modal-close{
-    background-color: rgba(255, 255, 255, 0.678);
+    color: #fff;
+    background-color: rgba(107, 95, 95, 0.678);
     border: none;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    width: 35px;
+    height: 35px;
     /* width: 10%; */
     align-self:flex-end;
+}
+
+.modal-close:hover{
+    cursor: pointer;
 }
 
 h4{
