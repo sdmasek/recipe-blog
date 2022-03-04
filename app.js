@@ -22,7 +22,6 @@ let recipes = [];
 //event listeners
 recipeSection.addEventListener("click", clickRecipe);
 searchInput.addEventListener("keyup", searchRecipes);
-
 const datacaptionsList = [
     "lemon", "salmon", "fish", "seafood", "dinner", "butter", "sauce", "citrus",
     "soup", "vegetarian", "lunch", "squash", "pumpkin", "creamy", "fall", "autumn",
@@ -50,7 +49,8 @@ displaySearch = (recipeSearch) => {
     recipeLi.textContent = searchInput.value;
     // console.log(searchInput.value);
     // console.log(recipeSearch.innerHTML);
-    recipeDiv.innerHTML += `
+    let html = '';
+    html += `
             <ul>
             <li class="recipe-search-item">
             <a class = "recipe-search-link" href="#">${recipeSearch}</a>
@@ -63,6 +63,7 @@ displaySearch = (recipeSearch) => {
     if (recipeLi.textContent === "") {
         form.removeChild(recipeDiv);
     }
+    html = recipeDiv.innerHTML;
 
 }
 
@@ -73,7 +74,7 @@ function searchRecipes(e) {
 
     // go through each recipe card to get datacaption and title
     for (let i = 0; i < recipeCards.length; i++) {
-        //initialize new recipe array
+
 
         let recipeCaption = recipeImages[i].getAttribute("data-food-caption");
 
@@ -86,14 +87,14 @@ function searchRecipes(e) {
             if (search.toLowerCase().includes(datacaption)) {
                 if (recipeCaption.includes(datacaption)) {
                     recipes.push(recipeTitle);
-
                     console.log(recipeTitle);
                 }
             }
 
-        });
-        displaySearch(recipeMatch);
 
+        });
+        console.log(recipeMatch);
+        displaySearch(recipeMatch);
     }
 
 }
