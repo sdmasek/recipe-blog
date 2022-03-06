@@ -4,6 +4,8 @@
 // const heartIcon = document.querySelector(".svg-icon");
 const recipeCard = document.querySelector(".rcp-card");
 const recipeCards = document.querySelectorAll(".rcp-card");
+
+console.log("recipe cards", recipeCards);
 const recipeModal = document.querySelector(".recipe-modal");
 const recipeSection = document.querySelector(".recipes");
 const searchInput = document.querySelector(".form-control");
@@ -17,11 +19,18 @@ const recipeTitles = document.querySelectorAll("h4");
 //get all images that have the data-food-type tag
 const recipeImages = document.querySelectorAll(".card-photo");
 let recipes = [];
+let searchTerm = "";
 
 
 //event listeners
 recipeSection.addEventListener("click", clickRecipe);
-searchInput.addEventListener("keyup", searchRecipes);
+form.addEventListener("submit", searchRecipes);
+searchInput.addEventListener('change', handler);
+
+function handler(event) {
+    searchTerm = event.target.value;
+}
+
 const datacaptionsList = [
     "lemon", "salmon", "fish", "seafood", "dinner", "butter", "sauce", "citrus",
     "soup", "vegetarian", "lunch", "squash", "pumpkin", "creamy", "fall", "autumn",
@@ -49,14 +58,17 @@ displaySearch = (recipeSearch) => {
     recipeLi.textContent = searchInput.value;
     // console.log(searchInput.value);
     // console.log(recipeSearch.innerHTML);
-    let html = '';
-    html += `
+    for (let i = 0; i < recipeSearch.length; i++) {
+        let html = '';
+        html += `
             <ul>
             <li class="recipe-search-item">
-            <a class = "recipe-search-link" href="#">${recipeSearch}</a>
+            <a class = "recipe-search-link" href="#">${recipeSearch[i]}</a>
             </li>
             </ul>
         `;
+
+    }
 
     form.appendChild(recipeDiv);
 
@@ -68,36 +80,47 @@ displaySearch = (recipeSearch) => {
 }
 
 //search for recipes using the titles from the h4's
-function searchRecipes(e) {
+function searchRecipes() {
     //switch the search value to lowercase
-    let search = e.target.value.toLowerCase();
+
 
     // go through each recipe card to get datacaption and title
+
     for (let i = 0; i < recipeCards.length; i++) {
 
-
+        //define recipe object
+        let recipeObj = {}
         let recipeCaption = recipeImages[i].getAttribute("data-food-caption");
-
+        //define new property for caption
+        recipeObj.captions = recipeCaption;
+        // console.log(recipeObj);
         let recipeTitle = recipeCards[i].querySelector("h4");
         recipeTitle = recipeTitle.textContent;
+        recipeObj.title = recipeTitle;
+        //push to recipes array
+        recipes.push(recipeObj);
+        console.log(recipeObj.title);
         //filter through datacaption array and if the search's title matches
         //the datacaption, push that title to the recipes array
-        const recipeMatch = datacaptionsList.filter(datacaption => {
-            // recipeCaption.toLowerCase().includes(search)
-            if (search.toLowerCase().includes(datacaption)) {
-                if (recipeCaption.includes(datacaption)) {
-                    recipes.push(recipeTitle);
-                    console.log(recipeTitle);
-                }
-            }
 
 
-        });
-        console.log(recipeMatch);
-        displaySearch(recipeMatch);
+        // displaySearch(recipeMatch);
     }
+    console.log(recipes);
+
+    const recipeMatch = recipes.filter(recipe => {
+        //returning true or false - this is a test that makes sure the caption matches the search query
+        return recipe.captions.includes(searchTerm);
+
+
+    });
+    console.log(recipeMatch);
 
 }
+
+
+
+
 
 function clickRecipe(e) {
 
